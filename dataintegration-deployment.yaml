@@ -28,7 +28,7 @@ spec:
           value: 8g
         - name: SERVER_CONTEXTPATH
           value: /
-        image: docker-registry.eccenca.com/eccenca-dataintegration:deployment_mindset
+        image: docker.mindset-project.de/eccenca-dataintegration:deployment_mindset
         name: dataintegration
         ports:
         - containerPort: 80
