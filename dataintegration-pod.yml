@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dataintegration
+  namespace: eccenca
+spec:
+  containers:
+    - name: foo
+      image: docker.mindset-project.de/eccenca-dataintegration:v1
+    - name: regcred
