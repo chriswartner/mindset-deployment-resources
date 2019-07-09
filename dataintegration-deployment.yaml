@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.service.expose: "true"
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: dataintegration
+  name: dataintegration
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: dataintegration
+    spec:
+      containers:
+      - env:
+        - name: DEPLOYPROTOCOL
+          value: http
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: JAVA_MAX_MEM
+          value: 8g
+        - name: SERVER_CONTEXTPATH
+          value: /
+        image: docker-registry.eccenca.com/eccenca-dataintegration:deployment_mindset
+        name: dataintegration
+        ports:
+        - containerPort: 80
+        - containerPort: 8080
+        - containerPort: 10005
+        - containerPort: 4044
+        resources: {}
+      restartPolicy: Always
+status: {}

@@ -1,0 +1,18 @@
+version: '3'
+services:
+
+  dataintegration:
+    image: docker-registry.eccenca.com/eccenca-dataintegration:deployment_mindset
+    environment:
+    - "JAVA_MAX_MEM=8g"
+    - "SERVER_CONTEXTPATH=/"
+    - "DEPLOYPROTOCOL=http"
+    - "GET_HOSTS_FROM=dns"
+    ports:
+    - "80:81"
+    - "8080:8080"
+    - "10005:10005"
+    - "4040:4044"
+    labels:
+      kompose.service.expose: "true"
+

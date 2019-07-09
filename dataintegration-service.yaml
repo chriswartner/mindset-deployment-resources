@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.service.expose: "true"
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: dataintegration
+  name: dataintegration
+spec:
+  ports:
+  - name: "80"
+    port: 80
+    targetPort: 81
+  - name: "8080"
+    port: 8080
+    targetPort: 8080
+  - name: "10005"
+    port: 10005
+    targetPort: 10005
+  - name: "4040"
+    port: 4040
+    targetPort: 4044
+  selector:
+    io.kompose.service: dataintegration
+status:
+  loadBalancer: {}
