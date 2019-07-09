@@ -7,4 +7,5 @@ spec:
   containers:
     - name: foo
       image: docker.mindset-project.de/eccenca-dataintegration:v1
+  imagePullSecrets:
     - name: regcred
